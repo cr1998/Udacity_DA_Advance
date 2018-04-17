@@ -227,36 +227,13 @@ sulphates/硫酸盐浓度: g/dm^3
 
 # 双变量绘图选择
 ```{r echo=FALSE, Bivariate_Plots}
-#wine <- wine[c(-1, -1)]
-X = 1
+
 wine <- subset(wine, select = -c(X))
+ggscatmat(wine) + theme_grey(base_size=5)
 
-var1 = 1
-var2 = 6
-var3 = 12
-ggpairs(wine[c(var1:var2, var3)]) +
-   theme(legend.position = "none",
-        panel.grid.major = element_blank(),
-        axis.ticks = element_blank(),
-        axis.title.x = element_text(angle = 180, vjust = 1, color = "black"),
-        panel.border = element_rect(fill = NA))
 ```
 
-如图，盐分与葡萄酒质量相关系数达到-0.21，选择这两个变量进行分析。
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-var1 = 7
-var2 = 12
-
-ggpairs(wine[c(var1: var2)]) +
-   theme(legend.position = "none",
-        panel.grid.major = element_blank(),
-        axis.ticks = element_blank(),
-        axis.title.x = element_text(angle = 180, vjust = 1, color = "black"),
-        panel.border = element_rect(fill = NA))
-```
-
-如图，密度、酒精度和葡萄酒品质有相关性，所以选择研究这两个变量。
+如图，盐分、密度、酒精度和葡萄酒品质有相关性，所以选择研究这三个变量。
 
 从盐分、密度和酒精度三个变量对葡萄酒品质变量依次做探索性分析。
 
