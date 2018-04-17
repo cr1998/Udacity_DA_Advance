@@ -227,9 +227,14 @@ sulphates/硫酸盐浓度: g/dm^3
 
 # 双变量绘图选择
 ```{r echo=FALSE, Bivariate_Plots}
-wine <- wine[c(-1, -1)]
+#wine <- wine[c(-1, -1)]
+X = 1
+wine <- subset(wine, select = -c(X))
 
-ggpairs(wine[c(1:6, 12)]) +
+var1 = 1
+var2 = 6
+var3 = 12
+ggpairs(wine[c(var1:var2, var3)]) +
    theme(legend.position = "none",
         panel.grid.major = element_blank(),
         axis.ticks = element_blank(),
@@ -240,7 +245,10 @@ ggpairs(wine[c(1:6, 12)]) +
 如图，盐分与葡萄酒质量相关系数达到-0.21，选择这两个变量进行分析。
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-ggpairs(wine[c(7: 12)]) +
+var1 = 7
+var2 = 12
+
+ggpairs(wine[c(var1: var2)]) +
    theme(legend.position = "none",
         panel.grid.major = element_blank(),
         axis.ticks = element_blank(),
@@ -358,7 +366,7 @@ mtable(m1, m2)
 ```{r echo=FALSE, Plot_One}
 ggplot(data = wine, aes(x = quality)) +
         geom_histogram(stat = 'count') +
-        ggtitle('葡萄酒品质分布')
+        ggtitle('White Vin Quality Distribution')
 ```
 
 ### 描述一
@@ -371,7 +379,8 @@ wine$quality <- factor(wine$quality)
 ggplot(data = wine, aes(x = quality, y = chlorides)) +
         geom_boxplot() +
         ylim(0, 0.09) +
-        ggtitle('不同品质葡萄酒的盐度分布')
+        ggtitle('Chlorides Distribution') +
+        labs(y = 'chlorides (% by volume)')
 ```
 
 ### 描述二
@@ -383,9 +392,9 @@ ggplot(data = wine, aes(x = quality, y = chlorides)) +
 ggplot(data = wine, aes(x = alcohol, y = density)) +
         geom_point(aes(color = quality, size = chlorides, type = 'div')) +
         ylim(0.985, 1.005) +
-        scale_colour_brewer()
-        
-        ggtitle('葡萄酒品质和盐度、密度、酒精度的关系')
+        scale_colour_brewer() +
+        ggtitle('White Vin Quality with Chlorides, Density and Alcohol') +
+        labs(x = 'alcohol (% by volume)', y = 'density in (mg/l)')
 ```
 
 ### 描述三
