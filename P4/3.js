@@ -4,7 +4,7 @@ var svg = d3.select("#barchart")
                 .attr("width", 590)
                 .attr("height", 400)
                 .attr("id", "bar");
-d3.csv("/baseball_data_2.csv", function(data) {
+d3.csv("baseball_data_2.csv", function(data) {
 
     //绘制单个棒球手的图表
     function plotname(name) {

@@ -1,5 +1,5 @@
 var svg = new dimple.newSvg("#chartContainer", 590, 400);
-d3.csv("/baseball_data_1.csv", function(data) {
+d3.csv("baseball_data_1.csv", function(data) {
 
     function plotname(name) {
 

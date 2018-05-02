@@ -1,5 +1,5 @@
 var svg = new dimple.newSvg("#chartContainer", 590, 400);
-d3.csv("/baseball_data_2.csv", function(data) {
+d3.csv("baseball_data_2.csv", function(data) {
 
     //绘制单个棒球手的图表
     function plotname(name) {
