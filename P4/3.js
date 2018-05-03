@@ -29,10 +29,10 @@ d3.csv("baseball_data_2.csv", function(data) {
 
         }
         //因为只要第一行图表的颜色图例，所以只有第一个图表的legend参数为true
-        plotbar(100, 30, 430, 30, "Weight(Pound)", name, 0, 200, true);
-        plotbar(100, 120, 430, 30, "Height(Inch)", name, 0, 80, false);
-        plotbar(100, 210, 430, 30, "Avg(%)", name, 0, 0.5, false);
-        plotbar(100, 300, 430, 30, "HR", name, 0, 600, false);
+        plotbar(100, 30, 430, 30, "体重(Pound)", name, 0, 200, true);
+        plotbar(100, 120, 430, 30, "身高(Inch)", name, 0, 80, false);
+        plotbar(100, 210, 430, 30, "击球率", name, 0, 0.5, false);
+        plotbar(100, 300, 430, 30, "全垒得分", name, 0, 600, false);
 
     };
 
